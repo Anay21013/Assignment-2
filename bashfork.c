@@ -17,8 +17,7 @@ int main(int argc, char *argv[]){
 	if (rc == 0){
 		struct sched_param p1;
 		s1 = sched_setscheduler(rc,SCHED_OTHER,&p1);
-		char *a[]={"./b1.sh", NULL};
-		if (execvp("./b1.sh",a) == -1){
+		if (execl("/bin/sh", "sh", "./b1.sh",(char *) NULL){
 			printf("ERROR\n");
 		}
 
@@ -34,8 +33,7 @@ int main(int argc, char *argv[]){
 		struct sched_param p2;
 		p2.sched_priority = 19;
 		s2 = sched_setscheduler(rc1,SCHED_RR,&p2);
-		char *a[]={"./b1.sh",NULL};
-		if (execvp("./b1.sh",a) == -1){
+		if (execl("/bin/sh", "sh", "./b1.sh",(char *) NULL) {
 			printf("ERROR\n");
 		}
 	}
@@ -50,8 +48,7 @@ int main(int argc, char *argv[]){
 		struct sched_param p3;
 		p3.sched_priority = 19;
 		s3 = sched_setscheduler(rc2,SCHED_FIFO,&p3);
-		char *a[]={"./b1.sh",NULL};
-		if (execvp("./b1.sh",a)==-1){
+		if (execl("/bin/sh", "sh", "./b1.sh",(char *) NULL){
 			printf("ERROR\n");
 		}
 	}
